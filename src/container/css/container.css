@@ -1,0 +1,11 @@
+.drag{
+	background: cadetblue;
+	color: white;
+	width: 320px;
+	height: 195px;
+}
+.listNotes{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
