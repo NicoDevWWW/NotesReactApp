@@ -7,34 +7,36 @@ import React, {Component} from "react";
 import Note from "../component/Note";
 
 import '../container/css/container.css';
+import { getNotes } from '../service/Api'
+import EditModal from "./EditModal";
 
 class ListContainer extends Component{
 	constructor() {
 		super();
 		this.state = {
-			data: []
+			notes: []
 		}
 		// ANcienne méthode pour binder
 		// this.handleButtonClick = this.handleButtonClick.bind(this)
 
 	}
 	componentDidMount() {
-		fetch('https://api.myidea.fr/v1/notes')
-			.then((response) => response.json())
-			.then((result) => this.setState({data : result}))
-			.catch((error) => console.error(error))
+		getNotes()
+			.then(data => this.setState({notes: data}))
 	}
 	render() {
-		const {data} = this.state
+		const {notes} = this.state
 		return (
 			<div>
+				<EditModal />
 				<div className="listNotes">
 					{
-						data
+						notes
 						?(
-							data.map((note, index) => {
+								notes.map((note, index) => {
 								return (
 									<Note key={note.id} note={note}/>
+
 								)
 							})
 						)
@@ -42,6 +44,7 @@ class ListContainer extends Component{
 
 					}
 				</div>
+
 			</div>
 		)
 	}

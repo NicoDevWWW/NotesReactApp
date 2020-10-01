@@ -1,11 +1,102 @@
+/**
+/////////////GENERIC TAGS
+**/
+.header{
+
+}
+.menu{
+	position: fixed;
+	right: 0;
+	top: 0;
+}
 .drag{
 	background: cadetblue;
 	color: white;
-	width: 320px;
 	height: 195px;
 }
+
 .listNotes{
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 10px;
+}
+.logo{
+	max-width: 20%;
+}
+
+.ReactModal__Overlay {
+	opacity: 0;
+	transition: opacity 500ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open{
+	opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+	opacity: 0;
+}
+.ReactModalPortal .ReactModal__Overlay {
+	background-color: cadetblue !important;
+}
+.submit_btn{
+	background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+	border: 0;
+	border-radius: 15px;
+	box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
+	color: white;
+	padding: 0 30px;
+}
+.action_btn{
+	background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+	border: 0;
+	border-radius: 15px;
+	box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
+	color: white;
+	padding: 2rem;
+
+}
+.block_form{
 	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
+	justify-content: center;
+	flex-direction: column;
+}
+.block_form .input_form{
+	margin: 2rem auto;
+	width: 80%;
+}
+.modal_container{
+	position: relative;
+	overflow: hidden;
+}
+.modal_container h1{
+	text-align: center;
+}
+.block_form .MuiButton-root {
+	padding: 6px 8px;
+	margin: auto;
+	min-width: 20%;
+}
+.closemodal{
+	width: 15%;
+	text-align: center;
+	padding: 1rem;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.ReactModal__Overlay{
+	background: #282c34;
+}
+
+/*Note card */
+.action_row{
+	position: fixed;
+	bottom: 0;
+	margin: auto;
+	width: 100%;
+	background: #282c34;
+}
+.action_row svg{
+	margin: 0.2rem;
 }
