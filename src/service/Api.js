@@ -137,9 +137,40 @@ export function registerUser (user) {
 				body: JSON.stringify(body)
 			}
 			fetch(URL + 'auth/register', params )
+				.then(response => response.json())
 				.then(response => {
-					console.log(response)
-					console.log(user)
+					resolve(response)
+					// setTimeout(window.location.reload(), 200)
+				})
+				.catch(error => reject(error))
+		}else{
+			reject('Informastions manquantes')
+		}
+
+	})
+}
+export function login (credentials) {
+	return new Promise((resolve, reject ) => {
+		if (credentials.email && credentials.password){
+			var body = {
+				password: credentials.password,
+				email: credentials.email
+			}
+			var params = {
+				...globalparams,
+				method: 'POST',
+				mode: 'cors',
+				body: JSON.stringify(body)
+			}
+			fetch(URL + 'auth/login', params )
+				.then(response => response.json())
+				.then(response => {
+					if (response.tokens &&
+						response.tokens.access &&
+						response.tokens.access.token){
+						localStorage.setItem('token', response.tokens.access.token)
+					}
+					resolve(response)
 					// setTimeout(window.location.reload(), 200)
 				})
 				.catch(error => reject(error))

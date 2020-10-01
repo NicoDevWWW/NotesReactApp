@@ -14,6 +14,7 @@ class RootContainer extends Component{
 		document.getElementById('root').style.background = back ;
 	}
 	render() {
+
 		return (
 			<div>
 				<select id="colorPickerBackground" onChange={this.handlechangeBack}>

@@ -15,6 +15,7 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import AuthContainer from "./container/AuthContainer";
+import LoginContainer from "./container/LoginContainer";
 
 
 function App() {
@@ -46,7 +47,8 @@ function App() {
 						<MenuItem onClick={handleClose}><Link to="/">Home</Link></MenuItem>
 						<MenuItem onClick={handleClose}><Link to="/about">About</Link></MenuItem>
 						<MenuItem onClick={handleClose}><Link to="/contact">Contact</Link></MenuItem>
-						<MenuItem onClick={handleClose}><Link to="/authentification">Register</Link></MenuItem>
+						<MenuItem onClick={handleClose}><Link to="/register">Register</Link></MenuItem>
+						<MenuItem onClick={handleClose}><Link to="/login">Login</Link></MenuItem>
 					</Menu>
 				</div>
 					{/* A <Switch> looks through its children <Route>s and
@@ -55,8 +57,11 @@ function App() {
 						<Route path="/contact">
 							<Contact />
 						</Route>
-						<Route path="/authentification">
+						<Route path="/register">
 							<AuthContainer />
+						</Route>
+						<Route path="/login">
+							<LoginContainer />
 						</Route>
 						<Route path="/about">
 							<AboutContainer />

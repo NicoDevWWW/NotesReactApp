@@ -9,16 +9,22 @@ import Note from "../component/Note";
 import '../container/css/container.css';
 import { getNotes } from '../service/Api'
 import EditModal from "./EditModal";
-
 class ListContainer extends Component{
 	constructor() {
 		super();
 		this.state = {
-			notes: []
+			notes: [],
+			loading: false,
 		}
 		// ANcienne méthode pour binder
 		// this.handleButtonClick = this.handleButtonClick.bind(this)
 
+	}
+	hideLoader = () => {
+		this.setState({ loading: false });
+	}
+	showLoader = () => {
+		this.setState({ loading: true });
 	}
 	componentDidMount() {
 		getNotes()
@@ -36,9 +42,9 @@ class ListContainer extends Component{
 								notes.map((note, index) => {
 								return (
 									<Note key={note.id} note={note}/>
-
 								)
 							})
+
 						)
 						: 'No DATA'
 
