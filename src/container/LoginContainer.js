@@ -50,7 +50,7 @@ class LoginContainer extends Component{
 							<InputLabel>Mot de passe :</InputLabel>
 							<Input   name='password' type="password" onChange={this.handleChange} value={password}/>
 						</FormControl>
-						<Button className='action_btn' type="submit">Create an account</Button>
+						<Button className='action_btn' type="submit">Connexion</Button>
 					</form>
 				</div>
 			</div>

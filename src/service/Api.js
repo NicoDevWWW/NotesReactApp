@@ -3,6 +3,7 @@
  * @copyright Copyright (c) 2020 Moulinroty (https://www.moulinroty.com)
  * @link https://www.moulinroty.com
  */
+import jwt_decode from "jwt-decode";
 const URL = 'https://api.myidea.fr/v1/'
 var globalparams = {
 	cache: 'default',
@@ -10,6 +11,9 @@ var globalparams = {
 		'Content-Type': 'application/json; charset=UTF-8'
 	}
 }
+
+
+
 export function getNotes () {
 	return new Promise((resolve, reject) => {
 		window.fetch(URL + 'notes')
@@ -176,6 +180,32 @@ export function login (credentials) {
 				.catch(error => reject(error))
 		}else{
 			reject('Informastions manquantes')
+		}
+
+	})
+}
+export function getProfil (){
+	return new Promise((resolve, reject) => {
+		const token = localStorage.getItem('token')
+		if (token){
+			const decoded = jwt_decode(token)
+			const Userid = decoded.sub
+			var params = {
+				...globalparams,
+				method: 'GET',
+				headers: {
+					...globalparams.headers,
+					'Authorization': 'Bearer ' + token
+				}
+			}
+			fetch(URL + 'users/' + Userid, params)
+				.then(response => response.json())
+				.then(result => {
+					resolve(result)
+				})
+		}else{
+			console.log('Sorry No token')
+			reject('No TOKEN')
 		}
 
 	})

@@ -21,7 +21,6 @@ class Note extends Component{
 		super();
 		this.state = {
 			openModal:false,
-
 		}
 	}
 	getRandomColor(){
@@ -41,7 +40,6 @@ class Note extends Component{
 	}
 	handlefavorisNote = (note) => {
 		if (note.isFavorite === false){
-			console.log(note.isFavorite)
 			note.isFavorite = true
 			FavoriteNote(note)
 		}else{
@@ -49,16 +47,15 @@ class Note extends Component{
 			FavoriteNote(note)
 		}
 	}
-
 	render() {
 		const { note } = this.props
 		const favoriteMod = note.isFavorite
-
 		return (
 			note
 			? (
 					<Draggable>
-						<div className="drag" style={{backgroundColor:this.getRandomColor()}}>
+						{/*style={{backgroundColor:this.getRandomColor()}}*/}
+						<div className="drag" >
 							<div>
 								{favoriteMod ?
 									<AiFillHeart className="YES" size={25}color='red' onClick={() => this.handlefavorisNote(note)}/>

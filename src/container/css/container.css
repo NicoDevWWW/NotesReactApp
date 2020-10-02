@@ -100,3 +100,19 @@
 .action_row svg{
 	margin: 0.2rem;
 }
+
+
+/*************************
+///////////PROFIL
+ *************************/
+.avatar_profil{
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	border: 1px solid black;
+}
+.block_profil{
+	margin: auto;
+	display: flex;
+	justify-content: center;
+}
