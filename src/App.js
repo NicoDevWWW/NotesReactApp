@@ -16,7 +16,8 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import AuthContainer from "./container/AuthContainer";
 import LoginContainer from "./container/LoginContainer";
-
+import ProfilContainer from "./container/ProfilContainer";
+import { MdDehaze } from "react-icons/md";
 
 function App() {
 	const [anchorEl, setAnchorEl] = React.useState(null);
@@ -35,7 +36,7 @@ function App() {
 			<Router>
 				<div className="menu">
 					<Button className='action_btn' aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-						Open Menu
+						<MdDehaze size={25} color='white' />
 					</Button>
 					<Menu
 						id="simple-menu"
@@ -49,6 +50,7 @@ function App() {
 						<MenuItem onClick={handleClose}><Link to="/contact">Contact</Link></MenuItem>
 						<MenuItem onClick={handleClose}><Link to="/register">Register</Link></MenuItem>
 						<MenuItem onClick={handleClose}><Link to="/login">Login</Link></MenuItem>
+						<MenuItem onClick={handleClose}><Link to="/profil">Profil</Link></MenuItem>
 					</Menu>
 				</div>
 					{/* A <Switch> looks through its children <Route>s and
@@ -62,6 +64,9 @@ function App() {
 						</Route>
 						<Route path="/login">
 							<LoginContainer />
+						</Route>
+						<Route path="/profil">
+							<ProfilContainer />
 						</Route>
 						<Route path="/about">
 							<AboutContainer />
